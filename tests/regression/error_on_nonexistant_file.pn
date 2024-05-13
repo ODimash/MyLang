@@ -1,0 +1,9 @@
+# This test attempts to run the MyLang interpreter on a nonexistant file, which should produce an error
+
+print: "error: could not open 'thisFileDoesNotExist.pn'\nprogram not executed due to errors\n\n_____"
+
+cmd: "./MyLang thisFileDoesNotExist.pn"
+
+output: runCmd: cmd
+
+print: output

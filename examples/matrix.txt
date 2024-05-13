@@ -1,0 +1,14 @@
+arrSize: "Enter array size: ".input.Int
+newArray: IntArray: arrSize
+
+i: 0 | i < arrSize | i: i+1 @ (
+    arrayVal: ((i+1).String + ". Enter array element: ").input.Int
+    newArray.set: i, arrayVal
+)
+
+True @ (
+    Index: "Enter array Index for watching: ".input.Int
+    Index > arrSize ?
+        print: "You Index bigger than array size: " + arrSize.String
+    print: newArray.get: Index-1
+)

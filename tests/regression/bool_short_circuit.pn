@@ -1,0 +1,20 @@
+# Tests if short circuit is applied to operations with multiple bools
+
+print: "1\nmyFunc called\nmyFunc called\nmyFunc called\nmyFunc called\n4\n_____"
+
+True || (myFunc: True) ?
+	print: 1
+
+False && (myFunc: True) ?
+	print: 2
+
+!(myFunc: True) || False ?
+	print: 3
+
+(myFunc: False) || (myFunc: False) || (myFunc: True) || (myFunc: False) ?
+	print: 4
+
+myFunc :: {Bool} -> {Bool}: (
+	print: "myFunc called"
+	in
+)

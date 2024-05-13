@@ -1,0 +1,14 @@
+# Tests my text to morse code converter
+
+print: "enter some text or type quit: .--. .. -. . -.-. --- -. . \nenter some text or type quit: .-.. .- -. --. \nenter some text or type quit: \n\n_____"
+
+symInput: "MyLang\\nlang\\nquit"
+
+options: ""
+
+IS_TRANSPILED ?
+	options: options+" -e"
+
+cmd: "printf '"+symInput+"' | ./MyLang examples/morse.pn" + options
+
+print: runCmd: cmd
